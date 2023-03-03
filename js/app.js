@@ -1,10 +1,19 @@
-const loadData = async () => {
+const loadData = async (daaLimit) => {
     const res = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     const data = await res.json();
-    displayData(data.data.tools)
+    displayData(data.data.tools, daaLimit);
 }
 
-const displayData = (data) => {
+const displayData = (data, daaLimit) => {
+    //show all item
+    const showAll = document.getElementById('show-all')
+    if (daaLimit && data.length > 10) {
+        data = data.slice(0, 6);
+        showAll.classList.remove('hidden')
+    }
+    else {
+        showAll.classList.add('hidden')
+    }
     const container = document.getElementById('container');
     data.forEach(item => {
         const div = document.createElement('div');
@@ -48,4 +57,9 @@ const displayData = (data) => {
         })
     });
 }
-loadData()
+loadData(6)
+
+// show all data
+const showAllData = () => {
+    loadData()
+}
