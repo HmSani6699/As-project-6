@@ -1,4 +1,5 @@
 const loadData = async (daaLimit) => {
+    showSpinner(true)
     const res = await fetch('https://openapi.programming-hero.com/api/ai/tools');
     const data = await res.json();
     displayData(data.data.tools, daaLimit);
@@ -56,7 +57,20 @@ const displayData = (data, daaLimit) => {
             featuresContainer.appendChild(li)
         })
     });
+    showSpinner(false)
 }
+
+//spinner part
+const showSpinner = (isLoading) => {
+    const spinnerContainer = document.getElementById('spinnerContainer')
+    if (isLoading) {
+        spinnerContainer.classList.remove('hidden')
+    }
+    else {
+        spinnerContainer.classList.add('hidden')
+    }
+}
+
 loadData(6)
 
 // show all data
