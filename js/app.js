@@ -16,7 +16,9 @@ const displayData = (data, daaLimit) => {
         showAll.classList.add('hidden')
     }
     const container = document.getElementById('container');
+    container.innerHTML = '';
     data.forEach(item => {
+        console.log(item)
         const div = document.createElement('div');
         div.classList.add('card', 'w-full', 'bg-base-100', 'shadow-sm', 'border');
         div.innerHTML = `
@@ -38,11 +40,11 @@ const displayData = (data, daaLimit) => {
                         class="text-1xl font-bold mb-2">${item.name}</h2>
                     <p><i
                             class="fa-solid fa-calendar-days "></i>
-                        11/01/2022</p>
+                        ${item.published_in}</p>
                 </div>
                 <div>
-                    <i
-                        class="fa-solid fa-arrow-right text-red-500 cursor-pointer"></i>
+                <label for="my-modal-3"><i
+                class="fa-solid fa-arrow-right text-red-500 cursor-pointer"></i></label> 
                 </div>
             </div>
         </div>
