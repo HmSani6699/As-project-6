@@ -18,7 +18,7 @@ const displayData = (data, daaLimit) => {
     const container = document.getElementById('container');
     container.innerHTML = '';
     data.forEach(item => {
-        console.log(item)
+        // console.log(item)
         const div = document.createElement('div');
         div.classList.add('card', 'w-full', 'bg-base-100', 'shadow-sm', 'border');
         div.innerHTML = `
@@ -43,7 +43,7 @@ const displayData = (data, daaLimit) => {
                         ${item.published_in}</p>
                 </div>
                 <div>
-                <label for="my-modal-3"><i
+                <label for="my-modal-3" onclick="loadDetailsData(${item.id})"><i
                 class="fa-solid fa-arrow-right text-red-500 cursor-pointer"></i></label> 
                 </div>
             </div>
@@ -78,4 +78,23 @@ loadData(6)
 // show all data
 const showAllData = () => {
     loadData()
+}
+
+//load item details data
+const loadDetailsData = async (itemId) => {
+    let id = 0;
+    if (itemId < 10) {
+        id = `0${itemId}`
+    }
+    else {
+        id = itemId
+    }
+    const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
+    const res = await fetch(url);
+    const data = await res.json();
+    displayDetails(data.data)
+}
+
+const displayDetails = (data) => {
+    console.log(data)
 }
