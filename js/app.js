@@ -171,7 +171,7 @@ const displayDetails = (data) => {
     else {
         accuracy.innerHTML = `
         <p class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg"><span>
-        ${data.accuracy.score}</span> % accuracy</p>
+        ${data.accuracy.score * 100}</span> % accuracy</p>
         `
     }
     //features part
