@@ -202,4 +202,18 @@ const displayDetails = (data) => {
             integrationContainer.appendChild(li)
         })
     }
+};
+
+//sort by data section
+
+const sortDataLoad = async () => {
+    const res = await fetch('https://openapi.programming-hero.com/api/ai/tools');
+    const data = await res.json();
+    sortByData(data.data.tools)
+}
+const sortByData = (data) => {
+    const newArr = data.sort(function (a, b) {
+        return new Date(a.published_in) - new Date(b.published_in);
+    });
+    displayData(newArr)
 }
