@@ -140,10 +140,15 @@ const displayDetails = (data) => {
 <div>
     <div
         class="card w-full bg-base-100 shadow-sm border">
-        <figure class="p-4"><img class="rounded-xl"
-                src="${data.image_link[0]}"
-                alt="Shoes" style="height:230px" />
-        </figure>
+       <div class="relative">
+            <figure class="p-4"><img class="rounded-xl"
+            src="${data.image_link[0]}"
+            alt="Shoes" style="height:270px" />
+            </figure>
+
+            <div id="accuracy" class="absolute top-6 right-6" >
+            </div>
+       </div>
         <div
             class="card-body p-0 p-4 text-center">
             <h2
@@ -157,6 +162,18 @@ const displayDetails = (data) => {
     </div>
 </div>
 `;
+
+    //accuracy
+    const accuracy = document.getElementById('accuracy')
+    if (data.accuracy.score === null) {
+        accuracy.innerHTML = ''
+    }
+    else {
+        accuracy.innerHTML = `
+        <p class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg"><span>
+        ${data.accuracy.score}</span> % accuracy</p>
+        `
+    }
     //features part
     const featuresContainer = document.getElementById('features-container');
     if (data.features == {}) {
