@@ -107,27 +107,31 @@ const displayDetails = (data) => {
             <h2 class="card-title">
                 ${data.description}
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-4">
                 <div>
-                    <p class=" font-semibold text-green-500 p-4 text-center"> ${data.pricing[0].price ? data.pricing[0].price : 'free of cost/'} ${data.pricing[0].plan}</p>
+                    <p class=" font-semibold text-green-500 text-center">
+                     ${data.pricing === null ? 'free of cost/' : data.pricing[0].price} 
+                     ${data.pricing === null ? 'Basic' : data.pricing[0].plan}</p>
                 </div>
-
                 <div>
-                     <p class=" font-semibold text-red-500 p-4 text-center">${data.pricing[1].price ? data.pricing[1].price : 'free of cost/'} ${data.pricing[1].plan}</p>
+                <p class=" font-semibold text-amber-500 text-center">
+                 ${data.pricing === null ? 'free of cost/' : data.pricing[1].price}
+                  ${data.pricing === null ? 'Pro' : data.pricing[1].plan}</p>
                 </div>
-
                 <div>
-                     <p class=" font-semibold text-amber-500 p-4 text-center">${data.pricing[2].price ? data.pricing[2].price : 'free of cost/'} ${data.pricing[2].plan}</p>
+                <p class=" font-semibold text-red-500 text-center">
+                 ${data.pricing === null ? 'free of cost/' : data.pricing[2].price} 
+                 ${data.pricing === null ? 'Enterprise' : data.pricing[2].plan}</p>
                 </div>
             </div> 
-            <div class="grid grid-cols-1 lg:grid-cols-2 mt-3">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-3">
                 <div>
                   <h2 class="text-2xl font-semibold">Features</h2>
                   <ul id="features-container" class="list-disc pl-4"></ul>
                 </div>   
                 <div>
                    <h2 class="text-2xl font-semibold">Integrations</h2>
-                   <ul id="integration-container"></ul>
+                   <ul id="integration-container" class="list-disc pl-4"></ul>
                 </div> 
             </div>  
         </div>
@@ -144,10 +148,10 @@ const displayDetails = (data) => {
             class="card-body p-0 p-4 text-center">
             <h2
                 class="text-2xl font-semibold text-center">
-                ${data.input_output_examples[0].input ? data.input_output_examples[0].input : 'Can you give any example?'}
+                ${data.input_output_examples === null ? 'Can you give any example?' : data.input_output_examples[0].input}
             </h2>
             <p>
-            ${data.input_output_examples[0].output ? data.input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}
+            ${data.input_output_examples === null ? 'No! Not Yet! Take a break!!!' : data.input_output_examples[0].output}
             </p>
         </div>
     </div>
@@ -156,7 +160,7 @@ const displayDetails = (data) => {
     //features part
     const featuresContainer = document.getElementById('features-container');
     if (data.features == {}) {
-        const p = document.createElement(p);
+        const p = document.createElement('p');
         p.innerText = 'No data Found';
         featuresContainer.appendChild(p)
     }
@@ -166,5 +170,19 @@ const displayDetails = (data) => {
             li.innerText = data.features[`${item}`].feature_name;
             featuresContainer.appendChild(li)
         }
+    }
+    //Integrations
+    const integrationContainer = document.getElementById('integration-container')
+    if (data.integrations === [] || data.integrations === null) {
+        const p = document.createElement('p');
+        p.innerText = 'No data Found';
+        integrationContainer.appendChild(p)
+    }
+    else {
+        data.integrations.forEach(integrations => {
+            const li = document.createElement('li');
+            li.innerText = integrations;
+            integrationContainer.appendChild(li)
+        })
     }
 }
