@@ -96,7 +96,6 @@ const loadDetailsData = async (itemId) => {
 }
 
 const displayDetails = (data) => {
-    console.log(data)
     const modalContainer = document.getElementById('modal-card-section');
     modalContainer.innerHTML = `
 <div>
