@@ -113,14 +113,14 @@ const displayDetails = (data) => {
                      ${data.pricing === null ? 'Basic' : data.pricing[0].plan}</p>
                 </div>
                 <div>
-                <p class=" font-semibold text-amber-500 text-center">
-                 ${data.pricing === null ? 'free of cost/' : data.pricing[1].price}
-                  ${data.pricing === null ? 'Pro' : data.pricing[1].plan}</p>
+                    <p class=" font-semibold text-amber-500 text-center">
+                    ${data.pricing === null ? 'free of cost/' : data.pricing[1].price}
+                    ${data.pricing === null ? 'Pro' : data.pricing[1].plan}</p>
                 </div>
                 <div>
-                <p class=" font-semibold text-red-500 text-center">
-                 ${data.pricing === null ? 'free of cost/' : data.pricing[2].price} 
-                 ${data.pricing === null ? 'Enterprise' : data.pricing[2].plan}</p>
+                    <p class=" font-semibold text-red-500 text-center">
+                    ${data.pricing === null ? 'free of cost/' : data.pricing[2].price} 
+                    ${data.pricing === null ? 'Enterprise' : data.pricing[2].plan}</p>
                 </div>
             </div> 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 mt-3">
@@ -144,7 +144,6 @@ const displayDetails = (data) => {
             src="${data.image_link[0]}"
             alt="Shoes" style="height:270px" />
             </figure>
-
             <div id="accuracy" class="absolute top-6 right-6" >
             </div>
        </div>
