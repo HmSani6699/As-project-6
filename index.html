@@ -3,33 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"
-        content="IE=edge">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-    <title>Assignment 6</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI universe hub</title>
     <!-- tailwind css link -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css"
-        rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com">
     </script>
     <!-- font awesome link -->
-    <script
-        src="https://kit.fontawesome.com/88349b1000.js"
-        crossorigin="anonymous">
-        </script>
+    <script src="https://kit.fontawesome.com/88349b1000.js" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
     <!-- header stat -->
     <header>
-        <h1
-            class="text-center text-4xl font-bold mt-8">
+        <h1 class="text-center text-4xl font-bold mt-8">
             AI Universe Hub</h1>
         <div class=" flex justify-center mt-6">
-            <button onclick="sortDataLoad()"
-                class="btn btn-error text-white">Sort
+            <button onclick="sortDataLoad()" class="btn btn-error text-white">Sort
                 By Date</button>
         </div>
     </header>
@@ -38,24 +30,19 @@
     <!-- main section start -->
     <main>
         <section>
-            <div id="container"
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 w-9/12 mx-auto mt-12">
+            <div id="container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 w-9/12 mx-auto mt-12">
             </div>
         </section>
         <!-- show all -->
         <section>
-            <div id="show-all"
-                class=" flex justify-center mt-6 mb-4 hidden">
-                <button onclick="showAllData()"
-                    class="btn btn-error text-white">Show
+            <div id="show-all" class=" flex justify-center mt-6 mb-4 hidden">
+                <button onclick="showAllData()" class="btn btn-error text-white">Show
                     All</button>
             </div>
         </section>
         <!-- spinner part -->
-        <section id="spinnerContainer"
-            class="hidden">
-            <div
-                class="flex items-center justify-center">
+        <section id="spinnerContainer" class="hidden">
+            <div class="flex items-center justify-center">
                 <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status">
                     <span
@@ -65,15 +52,11 @@
         </section>
         <!-- modal -->
         <section>
-            <input type="checkbox" id="my-modal-3"
-                class="modal-toggle" />
+            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
             <div class="modal">
-                <div
-                    class="modal-box relative w-11/12 max-w-4xl">
-                    <label for="my-modal-3"
-                        class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <div id="modal-card-section"
-                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-6">
+                <div class="modal-box relative w-11/12 max-w-4xl">
+                    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <div id="modal-card-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-6">
                     </div>
                 </div>
             </div>
