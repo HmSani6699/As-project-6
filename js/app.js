@@ -18,7 +18,6 @@ const displayData = (data, daaLimit) => {
     const container = document.getElementById('container');
     container.innerHTML = '';
     data.forEach(item => {
-        // console.log(item)
         const div = document.createElement('div');
         div.classList.add('card', 'w-full', 'bg-base-100', 'shadow-sm', 'border');
         div.innerHTML = `
